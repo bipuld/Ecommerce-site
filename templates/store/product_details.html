@@ -75,7 +75,8 @@
         {% if single_product.stock <= 0 %} 
         <h5>Out of Stock</h5>
         {% else %}
-        <a href="./product-detail.html" class="btn  btn-primary"> <span class="text">Add to cart</span> <i class="fas fa-shopping-cart"></i>  </a>
+        <a href="{% url 'cart' %}" class="btn  btn-primary"> <span class="text">Add to cart</span> <i class="fas fa-shopping-cart"></i>  </a>
+        {% comment %} <a href="{% url 'add_cart' single_product.id %}" class="btn  btn-primary"> <span class="text">Add to cart</span> <i class="fas fa-shopping-cart"></i>  </a> {% endcomment %}
         {% endif %}
       </article> <!-- product-info-aside .// -->
             </main> <!-- col.// -->
@@ -84,6 +85,7 @@
     <!-- ============================ COMPONENT 1 END .// ================================= -->
     
     <br>
+    
     
     <div class="row">
                 <div class="col-md-9">
@@ -110,7 +112,18 @@
                 </p>	
             </div>
         </article>
-    
+        {% comment %} <script>
+          $(document).on('click', '.add-to-cart', function() {
+            var productId = $(this).data('product-id');
+            $.ajax({
+              url: '/add-to-cart/' + productId + '/',
+              success: function(data) {
+                $('.cart-total').text(data.total);
+                $('.cart-quantity').text(data.quantity);
+              }
+            });
+          });
+          </script> {% endcomment %}
         
     
         </div> <!-- col.// -->

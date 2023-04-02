@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'account',#for account propose where it may useful  for django admin login page
     'product', #this is for the product app where product is stored in model  as making realtion to category
     'store',#this is for the item that is available in our store
+    'carts' #for carts stuff this app is used escipally
 ]
 
 MIDDLEWARE = [
