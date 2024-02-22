@@ -30,7 +30,8 @@ def add_cart(request, product_id):
         )
         cart_item.save()
     return redirect('cart')
-# for decsring item cart item
+
+# for Decrement item cart item
 def remove_cart(request,product_id):
     cart = Cart.objects.get(cart_id=_cart_id(request))
     product= get_object_or_404(Product, id=product_id)
@@ -41,13 +42,15 @@ def remove_cart(request,product_id):
     else:
         cart_item.delete()
     return redirect('cart')
-# for deleting permantely cart_item from our list
+# for deleting permanently cart_item from our list
 def remove_cart_item(request,product_id):
     cart=Cart.objects.get(cart_id=_cart_id(request))
     product= get_object_or_404(Product, id=product_id)
     cart_item=CartItem.objects.get(product=product, cart=cart)
     cart_item.delete()
     return redirect('cart')
+
+
 def cart(request, total=0, quantity=0, cart_items=None):
     try:
         tax = 0
