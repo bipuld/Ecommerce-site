@@ -5,6 +5,7 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 # Create your models here.
 #this below function is used to make the username,firstname,lastname in our admin panel django  
 class MyAccountManager(BaseUserManager):
+    ''''This class pass the username firstname lastname email password while creating Superuser from terminal'''
     def create_user(self, first_name, last_name, username, email, password=None):
         if not email:
             raise ValueError('User must have an email address')
@@ -38,7 +39,7 @@ class MyAccountManager(BaseUserManager):
         return user
 
 
-# for account purpouse
+# for account purpose
 class Account(AbstractBaseUser):
     first_name      = models.CharField(max_length=50)
     last_name       = models.CharField(max_length=50)

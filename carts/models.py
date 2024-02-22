@@ -4,7 +4,6 @@ import uuid
 # Create your models here.
 
 class Cart(models.Model):
-    # cart_id=models.CharField(max_length=200,blank=True)class Cart(models.Model):
     cart_id = models.CharField(max_length=200,blank=True,null=True)
     date_added = models.DateTimeField(auto_now_add=True)
 
@@ -18,7 +17,7 @@ class CartItem(models.Model):
     is_active=models.BooleanField(default=True)
     
     def sub_total(self):
-        return self.product.price * self.quantity #this is fro the each price with quanaaty
+        return self.product.price * self.quantity 
     
     def __str__(self):
         return str(self.product)

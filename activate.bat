@@ -1,0 +1,1 @@
+E:\coding\python\django\Shopify-django\env\Scripts\activate.bat

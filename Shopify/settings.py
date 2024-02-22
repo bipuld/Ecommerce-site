@@ -27,7 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'category', #for categories of product
     'account',#for account propose where it may useful  for django admin login page
-    'product', #this is for the product app where product is stored in model  as making realtion to category
+    # 'product', #this is for the product app where product is stored in model  as making realtion to category
     'store',#this is for the item that is available in our store
     'carts' #for carts stuff this app is used escipally
 ]
@@ -51,11 +51,12 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
-                'django.template.context_processors.debug',
+                'django.template.context_processors.debug', 
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'category.context_processors.menu_links',
+                'category.context_processors.menu_links', #for the category context processors 
+                'carts.context_processors.counter',
             ],
         },
     },
@@ -64,8 +65,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'Shopify.wsgi.application'
 AUTH_USER_MODEL='account.Account'
 
-# Database
-# https://docs.djangoproject.com/en/3.1/ref/settings/#databases
+
 
 DATABASES = {
     'default': {
